@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
     return view('welcome');
 });
+
+// call 'showAll' method from DeckController
+Route::get('/decks', [ App\Http\Controllers\DeckController::class , 'showAll' ]);
+
+// GET {deck_id} param and call 'showDeck' method from DeckController
+Route::get('/deck/{deck_id}', [ App\Http\Controllers\DeckController::class , 'showDeck' ]);
