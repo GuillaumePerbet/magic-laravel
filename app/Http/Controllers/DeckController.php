@@ -18,20 +18,21 @@ class DeckController extends Controller
         return view( 'decks' , [ 'decks' => $decks ] );
     }
 
-    public function showDeck( $deck_id ){
+    public function show( $id ){
 
-        //select deck matching $deck_id
-        $deck = Deck::where( 'id' , $deck_id )->first();
+        //select deck matching $id
+        $deck = Deck::where( 'id' , $id )->first();
 
         //return deck view
         return view( 'deck' , [ 'deck' => $deck ] );
     }
 
-    public function create(){
-
-        //create new deck with cards field empty { 'cards': [] }
+    public function create( $name ){
+                
+        //insert new deck with $name parameter
         $deck = new Deck;
-        $deck->cards = json_encode([ 'cards' => [] ]);
+        $deck->name = $name;
         $deck->save();
     }
+
 }
