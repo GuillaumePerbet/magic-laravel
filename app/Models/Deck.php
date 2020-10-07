@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Deck extends Model
 {
     use HasFactory;
+    
+    //indicates the model doesn't use created_at and updated_at timestamps
+    public $timestamps = false;
 }
