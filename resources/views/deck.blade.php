@@ -6,6 +6,6 @@
     <title>Magic - Decks</title>
 </head>
 <body>
-    <h2>{{ $deck->id }}</h2>
+    <h2>{{ $deck->name }}</h2>
 </body>
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
     @foreach ($decks as $deck)
-        <h2>{{ $deck->id }}</h2>
+        <h2>{{ $deck->name }}</h2>
     @endforeach
 </body>
 </html>
