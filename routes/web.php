@@ -17,11 +17,11 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-// call 'showAll' method from DeckController
+// show all Decks
 Route::get('/decks', [ App\Http\Controllers\DeckController::class , 'showAll' ]);
 
-// GET {deck_id} param and call 'showDeck' method from DeckController
-Route::get('/deck/{deck_id}', [ App\Http\Controllers\DeckController::class , 'showDeck' ]);
+// show Deck matching {id}
+Route::get('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'show' ]);
 
-//test route to create a deck_id
-Route::get('/create', [ App\Http\Controllers\DeckController::class , 'create' ]);
+// create Deck with {name} 
+Route::get('/create/{name}', [ App\Http\Controllers\DeckController::class , 'create' ]);
