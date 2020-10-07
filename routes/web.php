@@ -22,3 +22,6 @@ Route::get('/decks', [ App\Http\Controllers\DeckController::class , 'showAll' ])
 
 // GET {deck_id} param and call 'showDeck' method from DeckController
 Route::get('/deck/{deck_id}', [ App\Http\Controllers\DeckController::class , 'showDeck' ]);
+
+//test route to create a deck_id
+Route::get('/create', [ App\Http\Controllers\DeckController::class , 'create' ]);
