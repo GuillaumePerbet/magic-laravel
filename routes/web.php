@@ -36,4 +36,4 @@ Route::post('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'update
 Route::get('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'show' ]);
 
 //delete Deck
-Route::delete('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'delete' ]);
+Route::get('/deck/{id}/delete', [ App\Http\Controllers\DeckController::class , 'delete' ]);
