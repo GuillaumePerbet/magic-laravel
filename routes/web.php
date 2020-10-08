@@ -18,10 +18,13 @@ Route::get('/', function(){
 });
 
 // show all Decks
-Route::get('/decks', [ App\Http\Controllers\DeckController::class , 'showAll' ]);
+Route::get('/deck', [ App\Http\Controllers\DeckController::class , 'index' ]);
+
+// show create Deck form 
+Route::get('/deck/create', [ App\Http\Controllers\DeckController::class , 'create' ]);
+
+// store new Deck
+Route::post('/deck', [ App\Http\Controllers\DeckController::class , 'store' ]);
 
 // show Deck matching {id}
 Route::get('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'show' ]);
-
-// create Deck with {name} 
-Route::get('/create/{name}', [ App\Http\Controllers\DeckController::class , 'create' ]);
