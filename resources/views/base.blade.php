@@ -6,6 +6,13 @@
     <title>Magic Laravel</title>
 </head>
 <body>
+    <header>
+        <ul>
+            <li><a href="/deck">Les decks</a></li>
+            <li><a href="/deck/create">Ajouter un deck</a></li>
+        </ul>
+    </header>
+
     @yield('content')
 </body>
 </html>
