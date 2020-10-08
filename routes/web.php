@@ -30,7 +30,7 @@ Route::post('/deck', [ App\Http\Controllers\DeckController::class , 'store' ]);
 Route::get('/deck/{id}/edit', [ App\Http\Controllers\DeckController::class , 'edit' ]);
 
 //update existing Deck
-Route::put('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'update' ]);
+Route::post('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'update' ]);
 
 //show Deck matching {id}
 Route::get('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'show' ]);
