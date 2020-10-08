@@ -55,7 +55,14 @@ class DeckController extends Controller
 
     public function update( $id ){
 
-        //update Deck matching $id
+        //select Deck matching $id
+        $deck = Deck::find( $id );
+
+        //update Deck values
+        $deck->name = request('name');
+
+        //update Deck
+        $deck->save();
 
         //redirect to updated Deck view
         return redirect( '/deck/$id' );
@@ -64,6 +71,7 @@ class DeckController extends Controller
     public function delete( $id ){
         
         //delete Deck matching $id
+        Deck::destroy($id);
 
         //redirect to Decks index view
         return redirect( '/deck' );
