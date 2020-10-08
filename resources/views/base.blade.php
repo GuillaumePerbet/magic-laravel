@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic</title>
+    <title>Magic Laravel</title>
 </head>
 <body>
     @yield('content')
