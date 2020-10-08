@@ -9,7 +9,7 @@ use App\Models\Deck;
 class DeckController extends Controller
 {
 
-    public function showAll(){
+    public function index(){
         
         //select all decks
         $decks = Deck::all();
@@ -21,18 +21,26 @@ class DeckController extends Controller
     public function show( $id ){
 
         //select deck matching $id
-        $deck = Deck::where( 'id' , $id )->first();
+        $deck = Deck::find($id);
 
         //return deck view
         return view( 'deck' , [ 'deck' => $deck ] );
     }
 
-    public function create( $name ){
+    public function create( ){
+        //return create form view
+        return view( 'form' );
+    }
+
+    public function store(){
                 
-        //insert new deck with $name parameter
+        //insert new Deck with name parameter
         $deck = new Deck;
-        $deck->name = $name;
+        $deck->name = request('name');
         $deck->save();
+
+        //redirect to Decks index
+        return redirect('/deck');
     }
 
 }
