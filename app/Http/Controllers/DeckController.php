@@ -65,7 +65,7 @@ class DeckController extends Controller
         $deck->save();
 
         //redirect to updated Deck view
-        return redirect( '/deck/$id' );
+        return redirect( "/deck/$id" );
     }
 
     public function delete( $id ){
