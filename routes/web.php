@@ -17,14 +17,23 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-// show all Decks
+//show all Decks
 Route::get('/deck', [ App\Http\Controllers\DeckController::class , 'index' ]);
 
-// show create Deck form 
+//show create Deck form 
 Route::get('/deck/create', [ App\Http\Controllers\DeckController::class , 'create' ]);
 
-// store new Deck
+//store new Deck
 Route::post('/deck', [ App\Http\Controllers\DeckController::class , 'store' ]);
 
-// show Deck matching {id}
+//show edit Deck form
+Route::get('/deck/{id}/edit', [ App\Http\Controllers\DeckController::class , 'edit' ]);
+
+//update existing Deck
+Route::put('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'update' ]);
+
+//show Deck matching {id}
 Route::get('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'show' ]);
+
+//delete Deck
+Route::delete('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'delete' ]);
