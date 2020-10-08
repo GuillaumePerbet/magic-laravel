@@ -5,5 +5,10 @@
 
     <button><a href="/deck/{{ $deck->id }}/edit">Modifier le deck</a></button>
     
-    <button><a href="/deck/{{ $deck->id }}/delete">Supprimer le deck</a></button>
+    <form action="/deck/{{ $deck->id }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <input type="submit" value="Supprimer le deck">
+    </form>
 @endsection
