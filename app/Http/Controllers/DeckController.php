@@ -34,6 +34,11 @@ class DeckController extends Controller
     }
 
     public function store(){
+
+        //validate name
+        request()->validate([
+            'name' => 'required'
+        ]);
                 
         //insert new Deck with name parameter
         $deck = new Deck;
@@ -54,6 +59,11 @@ class DeckController extends Controller
     }
 
     public function update( $id ){
+
+        //validate name
+        request()->validate([
+            'name' => 'required'
+        ]);
 
         //select Deck matching $id
         $deck = Deck::find( $id );
