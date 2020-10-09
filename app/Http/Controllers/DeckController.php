@@ -32,17 +32,10 @@ class DeckController extends Controller
 
     public function store(){
 
-        //validate name
-        request()->validate([
-            'name' => 'required'
-        ]);
-                
-        //insert new Deck with name parameter
-        $deck = new Deck;
-        $deck->name = request( 'name' );
-        $deck->save();
+        //create Deck
+        Deck::create($this->validateDeck());
 
-        //redirect to decks view
+        //redirect to Deck index view
         return redirect( '/deck' );
     }
 
@@ -54,16 +47,8 @@ class DeckController extends Controller
 
     public function update( Deck $deck ){
 
-        //validate name
-        request()->validate([
-            'name' => 'required'
-        ]);
-
-        //update Deck values
-        $deck->name = request('name');
-
         //update Deck
-        $deck->save();
+        $deck->update($this->validateDeck());
 
         //redirect to updated Deck view
         return redirect( "/deck/$deck->id" );
@@ -71,10 +56,18 @@ class DeckController extends Controller
 
     public function delete( Deck $deck ){
         
-        //delete Deck matching $id
+        //delete $deck
         $deck->delete();
 
-        //redirect to Decks index view
+        //redirect to Deck index view
         return redirect( '/deck' );
+    }
+
+    protected function validateDeck(){
+
+        //validate request values
+        return request()->validate([
+            'name' => 'required'
+        ]);
     }
 }
