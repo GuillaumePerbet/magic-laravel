@@ -26,14 +26,14 @@ Route::get('/deck/create', [ App\Http\Controllers\DeckController::class , 'creat
 //store new Deck
 Route::post('/deck', [ App\Http\Controllers\DeckController::class , 'store' ]);
 
-//show edit Deck form
-Route::get('/deck/{id}/edit', [ App\Http\Controllers\DeckController::class , 'edit' ]);
+//show edit Deck form, {deck} contain id
+Route::get('/deck/{deck}/edit', [ App\Http\Controllers\DeckController::class , 'edit' ]);
 
-//update existing Deck
-Route::put('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'update' ]);
+//update existing Deck, {deck} contain id
+Route::put('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'update' ]);
 
-//show Deck matching {id}
-Route::get('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'show' ]);
+//show Deck, {deck} contain id
+Route::get('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'show' ]);
 
-//delete Deck
-Route::delete('/deck/{id}', [ App\Http\Controllers\DeckController::class , 'delete' ]);
+//delete Deck, {deck} contain id
+Route::delete('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'delete' ]);

@@ -18,10 +18,7 @@ class DeckController extends Controller
         return view( 'decks' , [ 'decks' => $decks ] );
     }
 
-    public function show( $id ){
-
-        //select deck matching $id
-        $deck = Deck::find( $id );
+    public function show( Deck $deck ){
 
         //return deck view
         return view( 'deck' , [ 'deck'=>$deck ] );
@@ -49,24 +46,18 @@ class DeckController extends Controller
         return redirect( '/deck' );
     }
 
-    public function edit( $id ){
-
-        //select Deck matching $id
-        $deck = Deck::find( $id );
+    public function edit( Deck $deck ){
 
         //return editDeck form view
         return view( 'editDeck' , [ 'deck'=>$deck ]);
     }
 
-    public function update( $id ){
+    public function update( Deck $deck ){
 
         //validate name
         request()->validate([
             'name' => 'required'
         ]);
-
-        //select Deck matching $id
-        $deck = Deck::find( $id );
 
         //update Deck values
         $deck->name = request('name');
@@ -75,13 +66,13 @@ class DeckController extends Controller
         $deck->save();
 
         //redirect to updated Deck view
-        return redirect( "/deck/$id" );
+        return redirect( "/deck/$deck->id" );
     }
 
-    public function delete( $id ){
+    public function delete( Deck $deck ){
         
         //delete Deck matching $id
-        Deck::destroy($id);
+        $deck->delete();
 
         //redirect to Decks index view
         return redirect( '/deck' );
