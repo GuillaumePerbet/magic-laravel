@@ -14,4 +14,9 @@ class Deck extends Model
 
     //indicates that name attribute can be directy assign from request
     protected $fillable = [ 'name' ];
+
+    //return path to Deck page
+    public function path(){
+        return route( 'deck.show' , $this );
+    }
 }

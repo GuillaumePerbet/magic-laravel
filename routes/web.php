@@ -33,7 +33,7 @@ Route::get('/deck/{deck}/edit', [ App\Http\Controllers\DeckController::class , '
 Route::put('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'update' ]);
 
 //show Deck, {deck} contain id
-Route::get('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'show' ]);
+Route::get('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'show' ])->name('deck.show');
 
 //delete Deck, {deck} contain id
 Route::delete('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'delete' ]);

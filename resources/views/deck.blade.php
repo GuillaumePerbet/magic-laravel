@@ -3,9 +3,9 @@
 @section('content')
     <h2>{{ $deck->name }}</h2>
 
-    <button><a href="/deck/{{ $deck->id }}/edit">Modifier le deck</a></button>
+    <button><a href="{{ $deck->path() }}/edit">Modifier le deck</a></button>
     
-    <form action="/deck/{{ $deck->id }}" method="POST">
+    <form action="{{ $deck->path() }}" method="POST">
         @csrf
         @method('DELETE')
 

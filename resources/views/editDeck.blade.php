@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('content')
-    <form method="POST" action="/deck/{{ $deck->id }}">
+    <form method="POST" action="{{ $deck->path() }}">
         @csrf
         @method('PUT')
         

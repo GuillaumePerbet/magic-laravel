@@ -15,7 +15,7 @@ class DeckController extends Controller
         $decks = Deck::all();
 
         //return decks view
-        return view( 'decks' , [ 'decks' => $decks ] );
+        return view( 'decks' , [ 'decks'=>$decks ] );
     }
 
     public function show( Deck $deck ){
@@ -33,10 +33,10 @@ class DeckController extends Controller
     public function store(){
 
         //create Deck
-        Deck::create($this->validateDeck());
+        $deck = Deck::create($this->validateDeck());
 
         //redirect to Deck index view
-        return redirect( '/deck' );
+        return redirect( $deck->path() );
     }
 
     public function edit( Deck $deck ){
@@ -51,7 +51,7 @@ class DeckController extends Controller
         $deck->update($this->validateDeck());
 
         //redirect to updated Deck view
-        return redirect( "/deck/$deck->id" );
+        return redirect( $deck->path() );
     }
 
     public function delete( Deck $deck ){
