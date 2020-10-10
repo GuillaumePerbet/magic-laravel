@@ -13,4 +13,12 @@
 
         <input type="submit" value="Modifier">
     </form>
+
+    <form action="/search" method="post">
+        @csrf
+
+        <label for="name">Entrer un nom de carte</label>
+        <input type="search" name="name" id="name">
+        <input type="submit" value="Rechercher">
+    </form>
 @endsection

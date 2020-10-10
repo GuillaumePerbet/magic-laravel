@@ -11,4 +11,7 @@ class Card extends Model
 
     //indicates the model doesn't use created_at and updated_at timestamps
     public $timestamps = false;
+
+    //indicates that name attribute can be directy assign from request
+    protected $fillable = [ 'id' , 'name' , 'imageUrl' ];
 }

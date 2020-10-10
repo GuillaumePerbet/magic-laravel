@@ -26,14 +26,20 @@ Route::get('/deck/create', [ App\Http\Controllers\DeckController::class , 'creat
 //store new Deck
 Route::post('/deck', [ App\Http\Controllers\DeckController::class , 'store' ]);
 
-//show edit Deck form, {deck} contain id
+//show edit Deck form, {deck} contains id
 Route::get('/deck/{deck}/edit', [ App\Http\Controllers\DeckController::class , 'edit' ]);
 
-//update existing Deck, {deck} contain id
+//update existing Deck, {deck} contains id
 Route::put('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'update' ]);
 
-//show Deck, {deck} contain id
+//show Deck, {deck} contains id
 Route::get('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'show' ])->name('deck.show');
 
-//delete Deck, {deck} contain id
+//delete Deck, {deck} contains id
 Route::delete('/deck/{deck}', [ App\Http\Controllers\DeckController::class , 'delete' ]);
+
+//search card by name in magic API
+Route::post('/search', [ App\Http\Controllers\CardController::class , 'search' ]);
+
+//show cards list
+Route::get('/card/{name}', [ App\Http\Controllers\CardController::class , 'indexByName' ]);
